@@ -29,3 +29,10 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'warfile'
     publishLocation: 'Container'
+- task: AzureRmWebAppDeployment@5
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'WP_Subscription_0192(1)(5f329b3e-0151-49c8-b2de-c23b42421024)'
+    appType: 'webApp'
+    WebAppName: 'webappvinod'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.war'
